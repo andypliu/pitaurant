@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardUseCompatPadding="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@sample/restaurants.json/data/thumbnail" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@sample/restaurants.json/data/name" />
+
+        <ImageView
+            android:id="@+id/iv_rating"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/rating_4" />
+
+        <TextView
+            android:id="@+id/tv_distant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="@android:color/holo_blue_light"
+            app:layout_constraintStart_toEndOf="@+id/tv_name"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="27dp"
+            tools:text="@sample/restaurants.json/data/distance"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/iv_type"
+            android:layout_width="33dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            app:srcCompat="@drawable/yue" />
+
+        <TextView
+            android:id="@+id/tv_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            tools:text="@sample/restaurants.json/data/city" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/restaurantHome">
+
+    <fragment
+        android:id="@+id/restaurantHome"
+        android:name="com.hanfeng.pitant.ui.RestaurantHome"
+        android:label="RestaurantHome"
+        tools:layout="@layout/fragment_restaurant_home">
+        <action
+            android:id="@+id/action_restaurantHome_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantDetailFragment"
+        android:name="com.hanfeng.pitant.ui.RestaurantDetailFragment"
+        android:label="fragment_restaurant_detail"
+        tools:layout="@layout/fragment_restaurant_detail" />
+
+</navigation>

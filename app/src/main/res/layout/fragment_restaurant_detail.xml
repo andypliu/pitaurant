@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="restaurant"
+            type="com.hanfeng.pitant.model.Restaurant" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.hanfeng.pitant.ui.RestaurantDetailFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@{restaurant.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            tools:text="五月花" />
+
+        <ImageView
+            android:id="@+id/iv_foods"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/mayflower" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <ImageView
+            android:id="@+id/iv_ratings"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline2"
+            app:ratingIcon="@{restaurant.rating}"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/rating_4" />
+
+        <ImageView
+            android:id="@+id/iv_price_rank"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_ratings"
+            app:pricingIcon="@{restaurant.priceRank}"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/price_rank_4" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+
+        <TextView
+            android:id="@+id/tv_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@{Integer.toString(restaurant.likes)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_price_rank"
+            tools:text="168"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/like_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="likes"
+            app:layout_constraintStart_toEndOf="@+id/tv_likes"
+            app:layout_constraintTop_toBottomOf="@+id/iv_price_rank"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:minLines="2"
+            android:text="@{restaurant.address}"
+            android:textColor="@android:color/holo_blue_light"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            tools:text="123 Main St. \nSan Francisco, CA 95129" />
+
+        <TextView
+            android:id="@+id/tv_distant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_name"
+            tools:text="1.8 mi" />
+
+        <TextView
+            android:id="@+id/tv_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="12dp"
+            android:text="@{restaurant.phone}"
+            android:textColor="@android:color/holo_blue_light"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toEndOf="@+id/tv_tel_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address"
+            tools:text="(415) 667-8889" />
+
+        <ImageView
+            android:id="@+id/iv_type"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/yue" />
+
+        <TextView
+            android:id="@+id/tv_special_description_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="特色："
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/tv_special_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="@{restaurant.specialDescription}"
+            app:layout_constraintStart_toEndOf="@+id/tv_special_description_title"
+            app:layout_constraintTop_toTopOf="@+id/tv_special_description_title"
+            tools:text="鳕鱼好棒！" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="368dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintTop_toBottomOf="@+id/tv_phone_number"
+            tools:layout_editor_absoluteX="8dp" />
+
+        <ImageView
+            android:id="@+id/iv_url"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="@+id/iv_foods"
+            app:srcCompat="@drawable/weblink" />
+
+        <TextView
+            android:id="@+id/tv_tel_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="12dp"
+            android:text="电话:"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
